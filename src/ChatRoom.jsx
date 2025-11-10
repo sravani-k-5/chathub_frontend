@@ -10,7 +10,7 @@ const ChatRoom = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const newSocket = io("https://chathub-backend-nc2e.onrender.com/", {
+    const newSocket = io("http://localhost:5000", {
       reconnectionDelayMax: 10000,
       reconnectionAttempts: 5,
       timeout: 10000
@@ -38,7 +38,7 @@ const ChatRoom = () => {
     const fetchMessages = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch("http://localhost:5000/messages");
+        const response = await fetch("https://chathub-backend-nc2e.onrender.com/");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
