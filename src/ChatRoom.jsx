@@ -10,7 +10,7 @@ const ChatRoom = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:5000", {
+    const newSocket = io("https://chathub-backend-nc2e.onrender.com/", {
       reconnectionDelayMax: 10000,
       reconnectionAttempts: 5,
       timeout: 10000
