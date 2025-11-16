@@ -218,42 +218,63 @@ const ChatRoom = () => {
     }
   };
 
-  return (
-    <div>
-      <h2>Chat Hub</h2>
-      {error && <div style={{ color: "red", margin: "10px 0" }}>{error}</div>}
-      {isLoading ? (
-        <div>Loading messages...</div>
-      ) : (
-        <ul style={{ listStyle: "none", padding: 0 }}>
-          {messages.map((msg, index) => (
-            <li key={msg._id || index} style={{ margin: "10px 0" }}>
-              <strong>{msg.user}:</strong> {msg.message}
-            </li>
-          ))}
-        </ul>
-      )}
-      <div style={{ marginTop: "20px" }}>
-        <input
-          type="text"
-          placeholder="Your name"
-          value={user}
-          onChange={(e) => setUser(e.target.value)}
-          style={{ marginRight: "10px" }}
-        />
-        <input
-          type="text"
-          placeholder="Type your message..."
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          style={{ marginRight: "10px" }}
-        />
-        <button onClick={sendMessage} disabled={!socket || !user || !message}>
-          Send
-        </button>
-      </div>
-    </div>
-  );
-};
+//   return (
+//     <div>
+//       <h2>Chat Hub</h2>
+//       {error && <div style={{ color: "red", margin: "10px 0" }}>{error}</div>}
+//       {isLoading ? (
+//         <div>Loading messages...</div>
+//       ) : (
+//         <ul style={{ listStyle: "none", padding: 0 }}>
+//           {messages.map((msg, index) => (
+//             <li key={msg._id || index} style={{ margin: "10px 0" }}>
+//               <strong>{msg.user}:</strong> {msg.message}
+//             </li>
+//           ))}
+//         </ul>
+//       )}
+//       <div style={{ marginTop: "20px" }}>
+//         <input type="text" placeholder="Your name" value={user} onChange={(e) => setUser(e.target.value)} style={{ marginRight: "10px" }}/>
+//         <input type="text" placeholder="Type your message..." value={message} onChange={(e) => setMessage(e.target.value)} style={{ marginRight: "10px" }}/>
+//         <button onClick={sendMessage} disabled={!socket || !user || !message}>
+//           Send
+//         </button>
+//       </div>
+//     </div>
+//   );
+// };
+return (
+  <div className="ai-card">
+    <h2>ChatHub AI</h2>
 
+    {isLoading ? (
+      <div>Loading messages...</div>
+    ) : (
+      <div className="messages">
+        {messages.map((msg, index) => (
+          <div key={index} className="message-bubble">
+            <strong>{msg.user}:</strong> {msg.message}
+          </div>
+        ))}
+      </div>
+    )}
+
+    <div className="input-area">
+      <input
+        type="text"
+        placeholder="Your name"
+        value={user}
+        onChange={(e) => setUser(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Type message..."
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      />
+      <button onClick={sendMessage}>Send</button>
+    </div>
+  </div>
+);
+};
 export default ChatRoom;

@@ -1,4 +1,4 @@
-body {
+/* body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
@@ -48,4 +48,143 @@ button {
 button:hover {
     background-color: darkmagenta;
     color: #00246b;
+} */
+
+/* ================================
+   🔥 ANIMATED BACKGROUND
+================================ */
+/* ================================
+   🔥 ANIMATED BACKGROUND
+================================ */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Moving gradient background */
+  background: linear-gradient(120deg, #1e1e2f, #101020, #1b2838);
+  background-size: 400% 400%;
+  animation: bgMove 12s ease infinite;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ================================
+   🔥 AI CARD WITH ANIMATED COLOR
+================================ */
+.ai-card {
+  width: 450px;
+  height: 85vh;
+  border-radius: 20px;
+  padding: 25px;
+
+  background: linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+  backdrop-filter: blur(16px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  flex-direction: column;
+
+  /* Animated border glow */
+  border: 2px solid rgba(0, 255, 200, 0.3);
+  animation: glowingBorder 4s infinite alternate;
+}
+
+@keyframes glowingBorder {
+  0% { border-color: #00ffc8; box-shadow: 0 0 15px #00ffc8; }
+  50% { border-color: #8a2be2; box-shadow: 0 0 20px #8a2be2; }
+  100% { border-color: #00c3ff; box-shadow: 0 0 25px #00c3ff; }
+}
+
+/* ================================
+   🔥 TITLE
+================================ */
+h2 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 28px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ================================
+   🔥 MESSAGE AREA
+================================ */
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.message-bubble {
+  margin: 10px 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  max-width: 80%;
+
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  backdrop-filter: blur(6px);
+
+  animation: fadeIn 0.3s ease;
+}
+
+.message-bubble strong {
+  color: #00ffd5;
+}
+
+/* Smooth fade animation for new messages */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================================
+   🔥 INPUT AREA
+================================ */
+.input-area {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  outline: none;
+}
+
+input::placeholder {
+  color: #bbbbbb;
+}
+
+/* Send button */
+button {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+
+  background: linear-gradient(135deg, #00ffc8, #00b3ff);
+  color: #000;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
 }
